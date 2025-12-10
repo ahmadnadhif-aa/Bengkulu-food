@@ -1,6 +1,6 @@
 // script-Ai.js
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
-const API_KEY = "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";
+const API_KEY = "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";
 
 // Daftar model dengan urutan prioritas
 const MODEL_PRIORITY_LIST = [
@@ -286,4 +286,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 1000);
   
   userInput.focus();
+
 });

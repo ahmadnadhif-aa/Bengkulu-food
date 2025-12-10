@@ -1,6 +1,6 @@
 // script-Ai.js
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
-const API_KEY = "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";
+const API_KEY = "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";
 
 // Daftar model dengan urutan prioritas
 const MODEL_PRIORITY_LIST = [
@@ -20,14 +20,9 @@ const MODEL_PRIORITY_LIST = [
     provider: "Meta"
   },
   {
-    id: "qwen/qwen-2.5-72b-instruct:free",
-    name: "Qwen 2.5 72B",
+    id: "amazon/nova-2-lite-v1:free",
+    name: "Amazon 2",
     provider: "Alibaba"
-  },
-  {
-    id: "deepseek/deepseek-chat:free",
-    name: "DeepSeek Chat",
-    provider: "DeepSeek"
   },
   {
     id: "openai/gpt-oss-120b:free",
@@ -288,3 +283,4 @@ document.addEventListener('DOMContentLoaded', function() {
   userInput.focus();
 
 });
+

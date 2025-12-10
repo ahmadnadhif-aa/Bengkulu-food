@@ -1,6 +1,61 @@
 // script-Ai.js
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
-const API_KEY = "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";
+let API_KEY = localStorage.getItem('openrouter_api_key') || '';
+
+// Jika tidak ada API key, minta input
+if (!API_KEY) {
+    // Tampilkan tombol input API key
+    const apiButton = document.createElement('button');
+    apiButton.id = 'apiKeyButton';
+    apiButton.innerHTML = '🔑 Input API Key';
+    apiButton.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #ff6b35;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        cursor: pointer;
+        z-index: 9999;
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        animation: pulse 2s infinite;
+    `;
+    
+    apiButton.onclick = function() {
+        const key = prompt('Masukkan API Key OpenRouter:\n\nDapatkan gratis di: https://openrouter.ai/keys\n\nFormat: sk-or-v1-xxxxxxxx');
+        if (key && key.trim()) {
+            localStorage.setItem('openrouter_api_key', key.trim());
+            API_KEY = key.trim();
+            this.remove();
+            alert('✅ API Key tersimpan! Silakan refresh halaman.');
+        }
+    };
+    
+    // Tambahkan style animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.appendChild(apiButton);
+        
+        // Update tagline
+        const tagline = document.querySelector('.tag');
+        if (tagline) {
+            tagline.innerHTML = '🔑 Klik tombol di kanan atas untuk input API Key';
+            tagline.style.color = '#ff6b35';
+        }
+    });
+}
 
 // Daftar model dengan urutan prioritas
 const MODEL_PRIORITY_LIST = [
@@ -37,6 +92,25 @@ let failedModels = new Set(); // Model yang gagal untuk session ini
 const MAX_RETRIES = 2; // Maksimal percobaan ganti model
 
 document.addEventListener('DOMContentLoaded', function() {
+  // TAMBAHKAN CHECK API KEY DI SINI ↓
+  if (!API_KEY) {
+    // Sembunyikan chat form
+    const chatForm = document.getElementById('chatForm');
+    const chatWindow = document.getElementById('chatWindow');
+    
+    if (chatForm) chatForm.style.display = 'none';
+    if (chatWindow) {
+      chatWindow.innerHTML = `
+        <div style="text-align: center; padding: 40px 20px;">
+          <h3 style="color: #ff6b35;">🔑 API Key Diperlukan</h3>
+          <p>Silakan klik tombol di kanan atas untuk input API Key</p>
+          <p><small>Atau refresh halaman setelah input key</small></p>
+        </div>
+      `;
+    }
+    return; // Jangan lanjutkan inisialisasi chat
+  }
+  
   const chatForm = document.getElementById('chatForm');
   const userInput = document.getElementById('userInput');
   const sendBtn = document.getElementById('sendBtn');
@@ -74,7 +148,35 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   setupSendButton();
-  
+    addResetKeyButton();
+    function addResetKeyButton() {
+  const footer = document.querySelector('.footer-main');
+  if (footer && !footer.querySelector('.reset-key-btn')) {
+    const resetBtn = document.createElement('button');
+    resetBtn.className = 'reset-key-btn';
+    resetBtn.innerHTML = '🔄 Reset Key';
+    resetBtn.style.cssText = `
+      background: #6c757d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 10px;
+    `;
+    
+    resetBtn.onclick = function() {
+      if (confirm('Hapus API Key? Anda perlu input key baru setelah reset.')) {
+        localStorage.removeItem('openrouter_api_key');
+        alert('✅ Key dihapus. Halaman akan refresh...');
+        location.reload();
+      }
+    };
+    
+    footer.appendChild(resetBtn);
+  }
+}
   function addMessage(text, isUser = true) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `msg ${isUser ? 'user' : 'ai'}`;

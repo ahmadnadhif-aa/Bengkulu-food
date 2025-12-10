@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+<meta name="theme-color" content="#ff6b35">
+
+<!-- Untuk iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goblin+One&display=swap" rel="stylesheet">
+<title>Assistant ku</title>
+
+
+<!-- Link ke file CSS lokal -->
+<link rel="stylesheet" href="ini-gaya.css">
+</head>
+<body>
+<main class="page-wrap">
+<header class="topbar">
+<h1 class="brand goblin-one-regular">Assistant Kamu</h1>
+<p class="tag">Tanya apa saja — ini demo lokal, belum terhubung API</p>
+</header>
+
+<section class="chat-area">
+<div class="card">
+<div class="chat-window" id="chatWindow" aria-live="polite">
+<div class="system-msg">Halo! Coba tanyakan sesuatu. Tekan Enter untuk kirim.</div>
+</div>
+
+<form id="chatForm" class="chat-form" action="#" onsubmit="return false;">
+<input id="userInput" class="input-box" type="text" placeholder="Ketik pertanyaan..." autocomplete="off" aria-label="Tanya AI" />
+
+<button id="sendBtn" class="btn-send" type="submit" aria-label="Kirim pesan">
+Kirim
+</button>
+</form>
+</div>
+
+<div class="credits">Cuman ngetes saja - just trying</div>
+</section>
+
+<footer class="site-footer">
+<div class="above-footer">
+<a href="web.html" class="ai-nav"> <-Kembali ke Beranda</a>
+</div>
+<div class="footer-main">hanya ngetes saja 2025 — Nadhif</div>
+</footer>
+</main>
+
+<!-- Link ke file JavaScript lokal -->
+<script src="script-Ai.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Makanan Khas Bengkulu</title>
+     <link rel="stylesheet" href="halo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nabla:EDPT@86&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Kuliner Bengkulu</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active" data-target="menu">Menu</a></li>
+                <li><a href="#" data-target="popular">Most Popular</a></li>
+                <li><a href="#" data-target="about">About Me</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="nabla-font">Menu Makanan Khas Bengkulu</h1>
+            <p>Jelajahi kekayaan kuliner tradisional Bengkulu yang lezat dan autentik. Setiap hidangan memiliki cerita dan cita rasa yang unik.</p>
+        </div>
+    </section>
+
+    <!-- Dashboard Navigation -->
+    <div class="container">
+        <div class="dashboard-nav">
+            <button class="nav-btn active" data-target="menu">
+                <i class="fas fa-book-open"></i> Semua Menu
+            </button>
+            <button class="nav-btn" data-target="popular">
+                <i class="fas fa-fire"></i> Most Popular
+            </button>
+            <button class="nav-btn" data-target="about">
+                <i class="fas fa-user"></i> About Creator
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu Section -->
+    <div class="container">
+        <section id="menu-section" class="section">
+            <h2 class="section-title">Menu Makanan Bengkulu</h2>
+            <div class="menu-grid" id="menu-container">
+                <!-- Menu items will be dynamically loaded here -->
+            </div>
+        </section>
+        
+        <!-- About Section (initially hidden) -->
+        <section id="about-section" class="about-section" style="display: none;">
+            <div class="about-content">
+                <div>
+                    <img src="image/Proyek Baru [9BABC65].png" alt="foto amb" class="profile-img">
+                </div>
+                <div class="about-text">
+                    <h3>Ahmad Nadhif</h3>
+                    <p><strong>Tentang saya - you know me</strong></p>
+                    <p>Saya adalah Mahasiswa semester satu Universitas Bengkulu. Dengan ketertarikan saya dengan makanan (btw saya suka basket juga :V) maka,website ini dibuat dengan tujuan untuk melestarikan dan mempromosikan kuliner khas Bengkulu yang memiliki cita rasa unik dan kaya akan rempah-rempah. Setiap menu yang ditampilkan di sini merupakan hasil riset mendalam untuk memastikan keaslian informasinya.</p>
+                    <p>Saya berharap website ini dapat menjadi referensi bagi siapa saja yang ingin mengenal lebih jauh tentang makanan tradisional Bengkulu.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ahmdnadhiff_/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for Menu Details -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modal-title">Detail Menu</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-content" id="modal-content">
+                <!-- Modal content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+<div class="ai-link-container">
+    <a href="tes.html" target="_blank" class="ai-link">Coba Assistant pintar kami🥖</a>
+</div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kuliner Bengkulu. Dibuat dengan sepenuh hati oleh Ahmad Nadhif.</p>
+            <p>Website ini didedikasikan untuk melestarikan kuliner tradisional Bengkulu.</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Data menu makanan khas Bengkulu
+        const menuData = [
+            {
+                id: 1,
+                name: "Pendap",
+                price: "Rp 25.000",
+                image: "https://th.bing.com/th/id/OIP.1qtxCqZsFCVg7NcEwYrJ5gHaE6?w=250&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+                description: "Pendap adalah makanan khas Bengkulu yang terbuat dari ikan yang difermentasi dengan bumbu rempah khas. Biasanya ikan yang digunakan adalah ikan laut seperti tenggiri.",
+                fullDescription: "Pendap adalah makanan tradisional Bengkulu yang terbuat dari ikan yang difermentasi dengan bumbu rempah khas. Proses pembuatannya memakan waktu beberapa hari hingga ikan terfermentasi sempurna. Ikan yang biasa digunakan adalah ikan tenggiri atau ikan lainnya. Pendap memiliki cita rasa yang kuat, asam, dan gurih dengan aroma khas fermentasi. Hidangan ini biasanya disajikan dengan nasi hangat dan sayuran segar. Pendap merupakan warisan kuliner yang telah turun-temurun di kalangan masyarakat Bengkulu dan memiliki nilai budaya yang tinggi.",
+                popular: true,
+                tag: "Fermentasi"
+            },
+            {
+                id: 2,
+                name: "Lempuk Durian",
+                price: "Rp 35.000",
+                image: "https://img-global.cpcdn.com/003_recipes/14a3eab11c27fd1a/751x532cq70/lempuk-durian-foto-resep-utama.jpg",
+                description: "Lempuk Durian adalah makanan khas Bengkulu yang terbuat dari durian yang diolah menjadi bentuk seperti dodol dengan tekstur kenyal dan rasa manis khas durian.",
+                fullDescription: "Lempuk Durian merupakan salah satu oleh-oleh khas Bengkulu yang terkenal. Makanan ini terbuat dari durian asli yang diolah dengan campuran tepung ketan dan gula, kemudian dimasak dalam waktu lama hingga mengental dan berbentuk seperti dodol. Lempuk Durian memiliki tekstur kenyal, rasa manis, dan aroma durian yang khas. Makanan ini biasanya dikemas dalam daun pisang atau plastik, dan dapat bertahan dalam waktu yang cukup lama. Lempuk Durian sangat populer di kalangan wisatawan sebagai oleh-oleh khas Bengkulu.",
+                popular: true,
+                tag: "Manis"
+            },
+            {
+                id: 3,
+                name: "Gulai Ikan Patin",
+                price: "Rp 40.000",
+                image: "https://img.freepik.com/premium-photo/gulai-ikan-patin-pahang-is-malay-traditional-curry-made-from-pangasius-fish-with-tempoyak_581937-4712.jpg?w=2000",
+                description: "Gulai Ikan Patin adalah hidangan ikan patin yang dimasak dengan bumbu gulai khas Bengkulu yang kaya rempah, dengan kuah santan yang gurih dan pedas.",
+                fullDescription: "Gulai Ikan Patin merupakan hidangan khas Bengkulu yang sangat populer. Ikan patin yang digunakan biasanya segar dan berukuran besar. Bumbu gulai khas Bengkulu terdiri dari campuran rempah-rempah seperti kunyit, jahe, lengkuas, serai, cabai, dan santan kelapa. Proses memasaknya memerlukan ketelitian agar bumbu meresap sempurna ke dalam daging ikan. Gulai Ikan Patin memiliki cita rasa gurih, pedas, dan kaya rempah. Hidangan ini biasanya disajikan dengan nasi putih hangat dan lalapan segar.",
+                popular: true,
+                tag: "Gulai"
+            },
+            {
+                id: 4,
+                name: "Tempoyak",
+                price: "Rp 20.000",
+                image: "https://chefwanlifestyle.com.my/wp-content/uploads/2020/11/Kalio-Udang-Tempoyak-Fermented-Durian-1024x635.jpg",
+                description: "Tempoyak adalah durian yang difermentasi dan digunakan sebagai bumbu masakan. Biasanya diolah menjadi sambal atau campuran masakan ikan.",
+                fullDescription: "Tempoyak adalah hasil fermentasi durian yang merupakan bahan makanan khas masyarakat Bengkulu dan Sumatera pada umumnya. Proses fermentasi dilakukan dengan menyimpan daging durian dalam wadah tertutup selama beberapa hari. Tempoyak memiliki aroma yang kuat dan rasa asam yang khas. Di Bengkulu, tempoyak biasanya diolah menjadi sambal tempoyak yang pedas atau digunakan sebagai bumbu untuk masakan ikan. Tempoyak mengandung probiotik yang baik untuk pencernaan. Makanan ini merupakan contoh pemanfaatan durian yang kreatif dan berkelanjutan.",
+                popular: false,
+                tag: "Fermentasi"
+            },
+            {
+                id: 5,
+                name: "Kue Kembang",
+                price: "Rp 15.000",
+                image: "https://radarutara.disway.id/upload/fad1c5aba4e03967015c1384df7ca812.jpeg",
+                description: "Kue Kembang adalah kue tradisional Bengkulu berbahan dasar tepung beras, gula merah, dan santan. Memiliki tekstur kenyal dan rasa manis gurih.",
+                fullDescription: "Kue Bembeng merupakan jajanan tradisional khas Bengkulu yang terbuat dari tepung beras, gula merah, dan santan. Adonan dicetak dalam loyang dan dikukus hingga matang. Kue ini memiliki tekstur yang kenyal dengan rasa manis gurih khas santan. Kue Bembeng biasanya disajikan pada acara-acara adat, hari raya, atau sebagai camilan sehari-hari. Warna coklatnya yang alami berasal dari gula merah. Kue ini dapat bertahan beberapa hari dalam suhu ruangan. Kue Bembeng merupakan warisan kuliner yang masih bertahan hingga kini.",
+                popular: false,
+                tag: "Jajanan"
+            },
+            {
+                id: 6,
+                name: "Sambal Tempoyak Ikan Patin",
+                price: "Rp 45.000",
+                image: "https://th.bing.com/th/id/OIP.omttD-t2KdH3bGUO40BT-gHaEK?w=333&h=187&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+                description: "Perpaduan antara ikan patin dengan sambal tempoyak yang pedas dan asam. Hidangan khas Bengkulu dengan cita rasa yang unik.",
+                fullDescription: "Sambal Tempoyak Ikan Patin adalah hidangan istimewa khas Bengkulu yang memadukan ikan patin segar dengan sambal tempoyak yang pedas dan asam. Tempoyak (durian fermentasi) diolah menjadi sambal dengan campuran cabai, bawang, dan rempah-rempah lainnya. Ikan patin kemudian dimasak dengan sambal tempoyak hingga bumbu meresap sempurna. Hasilnya adalah hidangan dengan cita rasa kompleks: gurih dari ikan, pedas dari sambal, dan asam unik dari tempoyak. Hidangan ini biasanya disajikan dengan nasi putih hangat dan sayuran rebus. Merupakan salah satu hidangan kebanggaan masyarakat Bengkulu.",
+                popular: false,
+                tag: "Spesial"
+            }
+        ];
+
+        // DOM Elements
+        const menuContainer = document.getElementById('menu-container');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalClose = document.getElementById('modal-close');
+        const modalContent = document.getElementById('modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const menuSection = document.getElementById('menu-section');
+        const aboutSection = document.getElementById('about-section');
+
+        // Initialize the page with all menu items
+        function loadMenuItems(filter = 'all') {
+            menuContainer.innerHTML = '';
+            
+            let filteredMenu = menuData;
+            
+            if (filter === 'popular') {
+                filteredMenu = menuData.filter(item => item.popular);
+            }
+            
+            filteredMenu.forEach(item => {
+                const menuCard = document.createElement('div');
+                menuCard.className = 'menu-card';
+                menuCard.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="menu-img">
+                    <div class="menu-info">
+                        <h3 class="menu-name">${item.name}</h3>
+                      
+                        <p class="menu-desc">${item.description}</p>
+                        <span class="menu-tag">${item.tag}</span>
+                        ${item.popular ? '<span class="menu-tag" style="background-color:#e63946; color:white; margin-left:5px;">Populer</span>' : ''}
+                    </div>
+                `;
+                
+                menuCard.addEventListener('click', () => openModal(item));
+                menuContainer.appendChild(menuCard);
+            });
+        }
+
+        // Open modal with menu details
+        function openModal(menuItem) {
+            modalTitle.textContent = menuItem.name;
+            modalContent.innerHTML = `
+                <img src="${menuItem.image}" alt="${menuItem.name}" class="modal-img">
+                <div class="modal-details">
+                    <h3>${menuItem.name}</h3>
+                    
+                    <p><strong>Kategori:</strong> ${menuItem.tag}</p>
+                    <p>${menuItem.fullDescription}</p>
+                    <p><strong>Status:</strong> ${menuItem.popular ? 'Menu Populer' : 'Menu Tradisional'}</p>
+                </div>
+            `;
+            modalOverlay.classList.add('active');
+        }
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        // Close modal when clicking outside
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        // Navigation buttons functionality
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const target = button.getAttribute('data-target');
+                
+                if (target === 'menu' || target === 'popular') {
+                    menuSection.style.display = 'block';
+                    aboutSection.style.display = 'none';
+                    loadMenuItems(target);
+                } else if (target === 'about') {
+                    menuSection.style.display = 'none';
+                    aboutSection.style.display = 'block';
+                }
+            });
+        });
+
+        // Navigation links functionality
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+                // Add active class to clicked link
+                link.classList.add('active');
+                
+                const target = link.getAttribute('data-target');
+                
+                // Update dashboard buttons
+                navButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-target') === target) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                if (target === 'menu' || target === 'popular') {
+                    menuSection.style.display = 'block';
+                    aboutSection.style.display = 'none';
+                    loadMenuItems(target);
+                } else if (target === 'about') {
+                    menuSection.style.display = 'none';
+                    aboutSection.style.display = 'block';
+                }
+            });
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMenuItems();
+        });
+        
+    </script>
+</body>
+</html>
